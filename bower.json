@@ -1,0 +1,16 @@
+{
+  "name": "nerdtalk-webrtc",
+  "version": "0.0.0",
+  "description": "WebRTC client in javascript.",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "nerdtalk-webrtc",
+  "version": "1.0.0",
+  "description": "WebRTC client in javascript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.3.1",
+    "express": "^4.12.2",
+    "getconfig": "^1.0.0"
+  }
+}
