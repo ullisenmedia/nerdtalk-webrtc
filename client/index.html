@@ -7,11 +7,11 @@
 </head>
 <body>
 
-<div>
+<div id="localVideoView">
     <video id="localVideo"></video>
-    <div id="remoteVideo"></div>
-
 </div>
+
+<div id="remoteVideoView"></div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <script src="//simplewebrtc.com/latest.js"></script>
@@ -22,8 +22,8 @@
     $(document).ready(function() {
 
         var app = new NTApp({
-            localVideoContainer: "localVideo",
-            removeVideoContainer: "remoteVideo",
+            localVideo: "localVideo",
+            removeVideoContainer: "remoteVideoView",
             url: 'http://localhost:8888'
         });
 

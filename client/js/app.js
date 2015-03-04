@@ -8,7 +8,7 @@
     root.NTApp = function(configurations) {
 
         this.webrtc = new SimpleWebRTC({
-            localVideoEl: configurations.localVideoContainer,
+            localVideoEl: configurations.localVideo,
             remoteVideosEl: configurations.removeVideoContainer,
             autoRequestMedia: true,
             url: configurations.url
