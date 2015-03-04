@@ -23,8 +23,7 @@
 
         var app = new NTApp({
             localVideo: "localVideo",
-            removeVideoContainer: "remoteVideoView",
-            url: 'http://signaling.simplewebrtc.com:80'
+            removeVideoContainer: "remoteVideoView"
         });
 
         app.onReady(app.join, app);

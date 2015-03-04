@@ -11,8 +11,7 @@
             localVideoEl: configurations.localVideo,
             remoteVideosEl: configurations.removeVideoContainer,
             autoRequestMedia: true,
-            url: configurations.url,
-            port: 80
+            url: configurations.url || NTApp.URL_SIGNAL_MASTER
         });
 
         this.addEventListeners();
@@ -20,6 +19,8 @@
 
     NTApp.ROOM_NERD_TALK = 'nerdtalk';
     NTApp.EVENT_READY_TO_CALL = 'readyToCall';
+    NTApp.EVENT_CONNECTIVITY_ERROR = 'connectivityError';
+    NTApp.URL_SIGNAL_MASTER = 'http://signaling.simplewebrtc.com:80';
 
     NTApp.prototype = {
 
@@ -31,9 +32,13 @@
 
             var readyToCallHandler = $.proxy(function() {
 
+                console.info("Connection: Successful");
+
                 this.isReady = true;
 
                 var createRoomHandler = $.proxy(function() {
+
+                    console.info("Room: Successfully created room");
 
                     if(this.readyHandler) {
                         this.readyHandler.apply();
@@ -49,18 +54,18 @@
 
             this.webrtc.on(NTApp.EVENT_READY_TO_CALL, readyToCallHandler);
 
-            this.webrtc.on('localStream', function (stream) {
-                console.log('localStream');
-            });
+            this.webrtc.on(NTApp.EVENT_CONNECTIVITY_ERROR, function () {
 
-            this.webrtc.on('localMediaError', function (err) {
-                console.log('localMediaError');
+                console.log('Connection: Failed');
             });
         },
 
         join: function() {
 
-            this.webrtc.joinRoom(NTApp.ROOM_NERD_TALK);
+            this.webrtc.joinRoom(NTApp.ROOM_NERD_TALK, function() {
+
+                console.info('Join: Successful');
+            });
         },
 
         onReady: function(handler) {
