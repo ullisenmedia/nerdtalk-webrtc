@@ -11,7 +11,8 @@
             localVideoEl: configurations.localVideo,
             remoteVideosEl: configurations.removeVideoContainer,
             autoRequestMedia: true,
-            url: configurations.url
+            url: configurations.url,
+            port: 80
         });
 
         this.addEventListeners();
