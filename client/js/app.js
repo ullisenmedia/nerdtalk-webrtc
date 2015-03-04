@@ -14,8 +14,6 @@
             url: configurations.url
         });
 
-        this.webrtc.createRoom(ROOM_NERD_TALK)
-
         this.addEventListeners();
     };
 
@@ -34,11 +32,17 @@
 
                 this.isReady = true;
 
-                this.webrtc.createRoom(NTApp.ROOM_NERD_TALK);
+                var createRoomHandler = $.proxy(function() {
 
-                if(this.readyHandler) {
-                    this.readyHandler.apply();
-                }
+                    if(this.readyHandler) {
+                        this.readyHandler.apply();
+                    }
+
+                }, this);
+
+                this.webrtc.createRoom(NTApp.ROOM_NERD_TALK, createRoomHandler);
+
+
 
             }, this);
 
