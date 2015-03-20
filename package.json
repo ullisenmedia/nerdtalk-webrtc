@@ -11,6 +11,7 @@
   "dependencies": {
     "ejs": "^2.3.1",
     "express": "^4.12.2",
-    "getconfig": "^1.0.0"
+    "getconfig": "^1.0.0",
+    "signal-master": "git+https://github.com/ullisenmedia/signalmaster.git"
   }
 }
